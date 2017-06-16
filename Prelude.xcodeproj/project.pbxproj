@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1DB5DE1EF213C90047BE2F /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB5DD1EF213C90047BE2F /* Reader.swift */; };
+		5E1DB5E01EF213D30047BE2F /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB5DF1EF213D30047BE2F /* JsonReader.swift */; };
+		5E1DB5E21EF367560047BE2F /* JsonResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB5E11EF367560047BE2F /* JsonResource.swift */; };
+		5E20BCA01EED072F001C66FA /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E20BC9F1EED072F001C66FA /* PriorityQueue.swift */; };
+		5E2C819E1EEB16BC0006C6C4 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2C819D1EEB16BC0006C6C4 /* Json.swift */; };
+		5E9EEA7F1EF4132900FBCD4D /* Curried.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EEA7E1EF4132900FBCD4D /* Curried.swift */; };
+		5E9EEA811EF46E9400FBCD4D /* Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EEA801EF46E9400FBCD4D /* Monad.swift */; };
 		5EE4E80C1EEA3060003CB964 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE4E8021EEA305F003CB964 /* Prelude.framework */; };
 		5EE4E8111EEA3060003CB964 /* PreludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8101EEA3060003CB964 /* PreludeTests.swift */; };
 		5EE4E8131EEA3060003CB964 /* Prelude.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EE4E8051EEA305F003CB964 /* Prelude.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81C1EEA307A003CB964 /* Status.swift */; };
+		5EE4E81F1EEA31A0003CB964 /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81E1EEA31A0003CB964 /* Applicative.swift */; };
+		5EE4E8211EEA343E003CB964 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8201EEA343E003CB964 /* Callback.swift */; };
+		5EE4E8231EEA3A3C003CB964 /* Leftist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8221EEA3A3C003CB964 /* Leftist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +34,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E1DB5DD1EF213C90047BE2F /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		5E1DB5DF1EF213D30047BE2F /* JsonReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		5E1DB5E11EF367560047BE2F /* JsonResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonResource.swift; sourceTree = "<group>"; };
+		5E20BC9F1EED072F001C66FA /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		5E2C819D1EEB16BC0006C6C4 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		5E9EEA7E1EF4132900FBCD4D /* Curried.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curried.swift; sourceTree = "<group>"; };
+		5E9EEA801EF46E9400FBCD4D /* Monad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monad.swift; sourceTree = "<group>"; };
 		5EE4E8021EEA305F003CB964 /* Prelude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Prelude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE4E8051EEA305F003CB964 /* Prelude.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prelude.h; sourceTree = "<group>"; };
 		5EE4E8061EEA305F003CB964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE4E80B1EEA3060003CB964 /* PreludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE4E8101EEA3060003CB964 /* PreludeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeTests.swift; sourceTree = "<group>"; };
 		5EE4E8121EEA3060003CB964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EE4E81C1EEA307A003CB964 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		5EE4E81E1EEA31A0003CB964 /* Applicative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Applicative.swift; sourceTree = "<group>"; };
+		5EE4E8201EEA343E003CB964 /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		5EE4E8221EEA3A3C003CB964 /* Leftist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leftist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +95,17 @@
 			children = (
 				5EE4E8051EEA305F003CB964 /* Prelude.h */,
 				5EE4E8061EEA305F003CB964 /* Info.plist */,
+				5EE4E81E1EEA31A0003CB964 /* Applicative.swift */,
+				5E9EEA801EF46E9400FBCD4D /* Monad.swift */,
+				5E9EEA7E1EF4132900FBCD4D /* Curried.swift */,
+				5EE4E81C1EEA307A003CB964 /* Status.swift */,
+				5EE4E8201EEA343E003CB964 /* Callback.swift */,
+				5E1DB5DD1EF213C90047BE2F /* Reader.swift */,
+				5E2C819D1EEB16BC0006C6C4 /* Json.swift */,
+				5E1DB5DF1EF213D30047BE2F /* JsonReader.swift */,
+				5E1DB5E11EF367560047BE2F /* JsonResource.swift */,
+				5EE4E8221EEA3A3C003CB964 /* Leftist.swift */,
+				5E20BC9F1EED072F001C66FA /* PriorityQueue.swift */,
 			);
 			path = Prelude;
 			sourceTree = "<group>";
@@ -149,6 +182,7 @@
 					5EE4E8011EEA305F003CB964 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S45PT92T2Q;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					5EE4E80A1EEA3060003CB964 = {
@@ -198,6 +232,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE4E81F1EEA31A0003CB964 /* Applicative.swift in Sources */,
+				5EE4E8211EEA343E003CB964 /* Callback.swift in Sources */,
+				5E9EEA7F1EF4132900FBCD4D /* Curried.swift in Sources */,
+				5E1DB5DE1EF213C90047BE2F /* Reader.swift in Sources */,
+				5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */,
+				5E9EEA811EF46E9400FBCD4D /* Monad.swift in Sources */,
+				5E20BCA01EED072F001C66FA /* PriorityQueue.swift in Sources */,
+				5E1DB5E01EF213D30047BE2F /* JsonReader.swift in Sources */,
+				5E2C819E1EEB16BC0006C6C4 /* Json.swift in Sources */,
+				5EE4E8231EEA3A3C003CB964 /* Leftist.swift in Sources */,
+				5E1DB5E21EF367560047BE2F /* JsonResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +369,7 @@
 		5EE4E8171EEA3060003CB964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S45PT92T2Q;
@@ -336,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kristoferhanes.Prelude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +390,7 @@
 		5EE4E8181EEA3060003CB964 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S45PT92T2Q;
@@ -362,6 +410,7 @@
 		5EE4E81A1EEA3060003CB964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = S45PT92T2Q;
 				INFOPLIST_FILE = PreludeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +423,7 @@
 		5EE4E81B1EEA3060003CB964 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = S45PT92T2Q;
 				INFOPLIST_FILE = PreludeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -402,6 +452,7 @@
 				5EE4E8181EEA3060003CB964 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5EE4E8191EEA3060003CB964 /* Build configuration list for PBXNativeTarget "PreludeTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +461,7 @@
 				5EE4E81B1EEA3060003CB964 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
