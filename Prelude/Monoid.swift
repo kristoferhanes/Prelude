@@ -6,10 +6,34 @@
 //  Copyright © 2017 Kristofer Hanes. All rights reserved.
 //
 
-protocol Semigroup {
-  static func combine(_: Self, _: Self) -> Self
+public protocol Semigroup {
+  static func combine(_ lhs: Self, _ rhs: Self) -> Self
 }
 
-protocol Monoid: Semigroup {
+public protocol Monoid: Semigroup {
   static var identity: Self { get }
+}
+
+extension Optional: Monoid {
+  
+  public static var identity: Wrapped? {
+    return nil
+  }
+  
+  public static func combine(_ lhs: Wrapped?, _ rhs: Wrapped?) -> Wrapped? {
+    return lhs ?? rhs
+  }
+  
+}
+
+extension Array: Monoid {
+  
+  public static var identity: [Element] {
+    return []
+  }
+  
+  public static func combine(_ lhs: [Element], _ rhs: [Element]) -> [Element] {
+    return lhs + rhs
+  }
+  
 }
