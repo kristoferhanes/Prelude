@@ -6,16 +6,12 @@
 //  Copyright © 2017 Kristofer Hanes. All rights reserved.
 //
 
-enum Status<Wrapped> {
+public enum Status<Wrapped> {
   case ok(Wrapped)
   case error(Error)
 }
 
-extension Status {
-  
-  static func pure(_ value: Wrapped) -> Status {
-    return .ok(value)
-  }
+public extension Status { // Functor
   
   func map<Mapped>(_ transform: (Wrapped) throws -> Mapped) -> Status<Mapped> {
     switch self {
@@ -35,7 +31,15 @@ extension Status {
     return status.map(transform)
   }
   
-  static func <*> <Mapped>(transform: Status<(Wrapped) throws -> Mapped>, status: Status) -> Status<Mapped> {
+}
+
+public extension Status { // Applicative
+  
+  static func pure(_ value: Wrapped) -> Status {
+    return .ok(value)
+  }
+  
+  static func <*> <Mapped>(transform: Status<(Wrapped) -> Mapped>, status: Status) -> Status<Mapped> {
     switch transform {
     case let .ok(f):
       return status.map(f)
@@ -44,6 +48,10 @@ extension Status {
     }
   }
   
+}
+
+public extension Status { // Monad
+
   func flatMap<Mapped>(_ transform: (Wrapped) throws -> Status<Mapped>) -> Status<Mapped> {
     switch self {
     case let .ok(value):
