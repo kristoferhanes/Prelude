@@ -8,10 +8,24 @@
 
 public struct Writer<Written, Wrapped> {
   let value: Wrapped
-  let written: Written
+  var written: Written
+}
+
+public extension Writer where Written: Monoid {
+  
+  init(_ value: Wrapped) {
+    self.value = value
+    self.written = Written.identity
+  }
+  
+  mutating func tell(_ write: Written) {
+    written = Written.combine(written, write)
+  }
+  
 }
 
 public extension Writer { // Functor
+  
   func map<Mapped>(_ transform: (Wrapped) throws -> Mapped) rethrows -> Writer<Written, Mapped> {
     return Writer<Written, Mapped>(value: try transform(value), written: written)
   }
@@ -19,9 +33,11 @@ public extension Writer { // Functor
   static func <^> <Mapped>(transform: (Wrapped) throws -> Mapped, writer: Writer) rethrows -> Writer<Written, Mapped> {
     return try writer.map(transform)
   }
+  
 }
 
 public extension Writer where Written: Monoid { // Applicative
+
   static func pure(_ value: Wrapped) -> Writer {
     return Writer(value: value, written: Written.identity)
   }
@@ -32,11 +48,17 @@ public extension Writer where Written: Monoid { // Applicative
       written: Written.combine(transform.written, writer.written)
     )
   }
+  
 }
 
 public extension Writer where Written: Monoid { // Monad
+  
   func flatMap<Mapped>(_ transform: (Wrapped) throws -> Writer<Written, Mapped>) rethrows -> Writer<Written, Mapped> {
     let newWriter = try transform(value)
-    return Writer<Written, Mapped>(value: newWriter.value, written: Written.combine(written, newWriter.written))
+    return Writer<Written, Mapped>(
+      value: newWriter.value,
+      written: Written.combine(written, newWriter.written)
+    )
   }
+  
 }
