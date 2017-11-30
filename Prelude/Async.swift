@@ -6,23 +6,68 @@
 //  Copyright © 2017 Kristofer Hanes. All rights reserved.
 //
 
-import Foundation
+import class Foundation.DispatchQueue
+import class Foundation.DispatchGroup
+import class Foundation.DispatchSemaphore
+import struct Foundation.DispatchQoS
 
 public struct Async<Wrapped> {
   private let operation: (@escaping (Status<Wrapped>) -> ()) -> ()
   
-  init(_ operation: @escaping (@escaping (Status<Wrapped>) -> ()) -> ()) {
+  public init(_ operation: @escaping (@escaping (Status<Wrapped>) -> ()) -> ()) {
     self.operation = operation
   }
   
-  func run(_ callback: @escaping (Status<Wrapped>) -> ()) {
+  public func run(_ callback: @escaping (Status<Wrapped>) -> ()) {
     operation(callback)
+  }
+  
+  public func await() throws -> Wrapped {
+    let semaphore = DispatchSemaphore(value: 0)
+    var result: Status<Wrapped>?
+    run { status in
+      result = status
+      semaphore.signal()
+    }
+    semaphore.wait()
+    switch result! {
+    case let .ok(value):
+      return value
+    case let .error(error):
+      throw error
+    }
   }
 }
 
 public extension Async {
   
-  static func convert<Input>(_ fn: @escaping (Input) throws -> Wrapped) -> (Input) -> Async {
+  init(qos: DispatchQoS.QoSClass = .default, operation: @escaping () throws -> Wrapped) {
+    self.operation = { yield in
+      DispatchQueue.global(qos: qos).async {
+        do {
+          try yield(.ok(operation()))
+        }
+        catch {
+          yield(.error(error))
+        }
+      }
+    }
+  }
+  
+  init(queue: DispatchQueue, operation: @escaping () throws -> Wrapped) {
+    self.operation = { yield in
+      queue.async {
+        do {
+          try yield(.ok(operation()))
+        }
+        catch {
+          yield(.error(error))
+        }
+      }
+    }
+  }
+  
+  static func converting<Input>(_ fn: @escaping (Input) throws -> Wrapped) -> (Input) -> Async {
     return { input in
       return Async { yield in
         do {
@@ -77,24 +122,23 @@ public extension Async { // Applicative
   static func <*> <Mapped>(transform: Async<(Wrapped) -> Mapped>, async: Async) -> Async<Mapped> {
     return Async<Mapped> { yield in
       let group = DispatchGroup()
-      let queue = DispatchQueue(label: "\(Async.self).<*>", attributes: .concurrent)
       
       var fn: Status<((Wrapped) -> Mapped)>!
       var x: Status<Wrapped>!
       
-      queue.async(group: group) {
+      DispatchQueue.global().async(group: group) {
         transform.run { status in
           fn = status
         }
       }
       
-      queue.async(group: group) {
+      DispatchQueue.global().async(group: group) {
         async.run { status in
           x = status
         }
       }
       
-      group.notify(queue: queue) {
+      group.notify(queue: DispatchQueue.global()) {
         yield(fn <*> x)
       }
     }
@@ -110,8 +154,8 @@ public extension Async { // Monad
         switch status {
         case let .ok(value):
           do {
-            let newCallback = try transform(value)
-            newCallback.run(yield)
+            let newAsync = try transform(value)
+            newAsync.run(yield)
           }
           catch {
             yield(.error(error))
