@@ -18,7 +18,15 @@ public func >>> <A, B, C>(f: @escaping (A) throws -> B, g: @escaping (B) throws 
   return { a in try g(f(a)) }
 }
 
+public func >>> <A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> ((A) -> C) {
+  return { a in g(f(a)) }
+}
+
 public func <<< <A, B, C>(g: @escaping (B) throws -> C, f: @escaping (A) throws -> B) -> ((A) throws -> C) {
+  return f >>> g
+}
+
+public func <<< <A, B, C>(g: @escaping (B) -> C, f: @escaping (A) -> B) -> ((A) -> C) {
   return f >>> g
 }
 
