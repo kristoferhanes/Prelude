@@ -11,6 +11,8 @@ import struct Foundation.URL
 import struct Foundation.Data
 import class  Foundation.JSONDecoder
 import class  Foundation.URLSession
+import class  Foundation.HTTPURLResponse
+import class  Foundation.NSError
 
 public struct Resource<Decoded> {
   let request: URLRequest
@@ -53,24 +55,24 @@ public extension Resource where Decoded: Decodable {
   
 }
 
-import Foundation
-
 private extension URLSession {
   
   func data(request: URLRequest) -> Async<Data> {
     return Async { yield in
       URLSession.shared.dataTask(with: request) { data, response, error in
-        switch (data, error) {
-        case let (data?, _):
-          yield(.ok(data))
-        case let (nil, error?):
+        switch (data, response, error) {
+        case let (_, _, error?):
           yield(.error(error))
-        default:
-          guard let httpResponse = response as? HTTPURLResponse else { return }
+        case let (data?, _, nil):
+          yield(.ok(data))
+        case let (nil, response?, nil):
+          guard let httpResponse = response as? HTTPURLResponse else { fatalError() }
           let error = NSError(domain: "HTTP Error", code: httpResponse.statusCode, userInfo: httpResponse.allHeaderFields as? [String : Any])
           yield(.error(error))
+        default:
+          fatalError()
         }
-      }.resume()
+        }.resume()
     }
   }
   
