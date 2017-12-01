@@ -10,11 +10,19 @@ public struct Transaction<Context: AnyObject, Wrapped> {
   private let transact: (Context) -> Async<Wrapped>
   
   public init(_ transaction: @escaping (Context) -> Async<Wrapped>) {
-    self.transact = transaction
+    transact = transaction
   }
   
-  public func extracted(from context: Context) -> Async<Wrapped> {
-    return self.transact(context)
+  public init(_ transaction: @escaping (Context) -> Wrapped) {
+    transact = Async.converting(transaction)
+  }
+  
+  public func run(from context: Context, _ callback: @escaping (Status<Wrapped>) -> ()) {
+    transact(context).run(callback)
+  }
+  
+  public func async(with context: Context) -> Async<Wrapped> {
+    return transact(context)
   }
 }
 
