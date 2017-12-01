@@ -11,6 +11,20 @@ public enum Status<Wrapped> {
   case error(Error)
 }
 
+public extension Status {
+  
+  var ok: Wrapped? {
+    guard case let .ok(ok) = self else { return nil }
+    return ok
+  }
+  
+  var error: Error? {
+    guard case let .error(error) = self else { return nil }
+    return error
+  }
+  
+}
+
 public extension Status { // Functor
   
   func map<Mapped>(_ transform: (Wrapped) throws -> Mapped) -> Status<Mapped> {
