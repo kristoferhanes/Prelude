@@ -127,15 +127,11 @@ public extension Async { // Applicative
       var x: Status<Wrapped>!
       
       DispatchQueue.global().async(group: group) {
-        transform.run { status in
-          fn = status
-        }
+        transform.run { fn = $0 }
       }
       
       DispatchQueue.global().async(group: group) {
-        async.run { status in
-          x = status
-        }
+        async.run { x = $0 }
       }
       
       group.notify(queue: DispatchQueue.global()) {
@@ -168,11 +164,11 @@ public extension Async { // Monad
           catch {
             yield(.error(error))
           }
-        case let .error(e):
-          yield(.error(e))
+        case let .error(error):
+          yield(.error(error))
         }
       }
     }
   }
-    
+  
 }
