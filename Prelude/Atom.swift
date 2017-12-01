@@ -30,7 +30,7 @@ public extension Atom {
         }
       }
       return result
-    }
+    }.transferred(to: DispatchQueue.global())
   }
   
   func notify(observer: @escaping (Model) -> ()) -> ObserverId {
