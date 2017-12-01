@@ -144,6 +144,14 @@ public extension Async { // Applicative
     }
   }
   
+  static func *> <Ignored>(ignored: Async<Ignored>, async: Async) -> Async {
+    return snd <^> ignored <*> async
+  }
+
+  static func <* <Ignored>(async: Async, ignored: Async<Ignored>) -> Async {
+    return fst <^> async <*> ignored
+  }
+
 }
 
 public extension Async { // Monad
@@ -166,9 +174,5 @@ public extension Async { // Monad
       }
     }
   }
-  
-  func then<Other>(_ other: Async<Other>) -> Async<Other> {
-    return flatMap { _ in other }
-  }
-  
+    
 }
