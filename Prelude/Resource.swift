@@ -14,43 +14,42 @@ import class  Foundation.URLSession
 import class  Foundation.HTTPURLResponse
 import class  Foundation.NSError
 
-public struct Resource<Decoded> {
-  let request: URLRequest
-  let decode: (Data) throws -> Decoded
+public protocol Resource {
+  associatedtype Decoded
+  var request: URLRequest { get }
+  func decoding(_ data: Data) throws -> Decoded
+}
+
+public struct AnyResource<Decoded>: Resource {
+  public let request: URLRequest
+  fileprivate let decode: (Data) throws -> Decoded
+  
+  public func decoding(_ data: Data) throws -> Decoded {
+    return try decode(data)
+  }
 }
 
 public extension Resource {
   
   func loadFromNetwork() -> Async<Decoded> {
-    return URLSession.shared.data(request: request).map(decode)
-  }
-  
-}
-
-public extension Resource {
-  
-  init(url: URL, decode: @escaping (Data) throws -> Decoded) {
-    self.init(request: URLRequest(url: url), decode: decode)
+    return URLSession.shared.data(request: request).map(decoding)
   }
   
 }
 
 public extension Resource { // Functor
   
-  func map<Mapped>(_ transform: @escaping (Decoded) throws -> Mapped) -> Resource<Mapped> {
-    return Resource<Mapped>(request: request, decode: { data in try transform(self.decode(data)) })
+  func map<Mapped>(_ transform: @escaping (Decoded) throws -> Mapped) -> AnyResource<Mapped> {
+    return AnyResource<Mapped>(request: request, decode: { data in try transform(self.decoding(data)) })
   }
   
 }
 
 public extension Resource where Decoded: Decodable {
-  
-  init(request: URLRequest) {
-    self.init(request: request) { data in try JSONDecoder().decode(Decoded.self, from: data) }
-  }
-  
-  init(url: URL) {
-    self.init(request: URLRequest(url: url))
+
+  func decoding(_ data: Data) throws -> Decoded {
+    let decoder = JSONDecoder()
+    return try decoder.decode(Decoded.self, from: data)
   }
   
 }
