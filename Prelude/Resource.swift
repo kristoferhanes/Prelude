@@ -38,6 +38,14 @@ public extension AnyResource {
   
 }
 
+public extension AnyResource where Decoded: Decodable {
+  
+  init(request: URLRequest) {
+    self.init(request: request) { try JSONDecoder().decode(Decoded.self, from: $0) }
+  }
+  
+}
+
 public extension Resource {
   
   func loadFromNetwork() -> Async<Decoded> {
@@ -49,7 +57,7 @@ public extension Resource {
 public extension Resource { // Functor
   
   func map<Mapped>(_ transform: @escaping (Decoded) throws -> Mapped) -> AnyResource<Mapped> {
-    return AnyResource<Mapped>(request: request, decode: { data in try transform(self.decoding(data)) })
+    return AnyResource<Mapped>(request: request, decode: decoding >>> transform)
   }
   
 }
@@ -57,8 +65,7 @@ public extension Resource { // Functor
 public extension Resource where Decoded: Decodable {
 
   func decoding(_ data: Data) throws -> Decoded {
-    let decoder = JSONDecoder()
-    return try decoder.decode(Decoded.self, from: data)
+    return try AnyResource<Decoded>(request: request).decoding(data)
   }
   
 }
