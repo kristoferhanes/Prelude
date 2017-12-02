@@ -29,6 +29,15 @@ public struct AnyResource<Decoded>: Resource {
   }
 }
 
+public extension AnyResource {
+  
+  init<R>(_ resource: R) where R: Resource, R.Decoded == Decoded {
+    request = resource.request
+    decode = resource.decoding
+  }
+  
+}
+
 public extension Resource {
   
   func loadFromNetwork() -> Async<Decoded> {
