@@ -44,6 +44,10 @@ public extension AnyResource where Decoded: Decodable {
     self.init(request: request) { try JSONDecoder().decode(Decoded.self, from: $0) }
   }
   
+  init(url: URL) {
+    self.init(request: URLRequest(url: url))
+  }
+  
 }
 
 public extension Resource {
