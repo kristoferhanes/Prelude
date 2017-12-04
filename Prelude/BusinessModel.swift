@@ -7,19 +7,9 @@
 //
 
 public protocol BusinessModel {
-  associatedtype Message
   associatedtype Event
+  associatedtype Command
   init()
-  func events(for message: Message) -> [Event]
+  func event(for command: Command) -> Event
   mutating func update(with event: Event)
-}
-
-public extension BusinessModel {
-  
-  mutating func send(_ message: Message) {
-    for event in events(for: message) {
-      update(with: event)
-    }
-  }
-  
 }
