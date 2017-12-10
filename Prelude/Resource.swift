@@ -14,13 +14,7 @@ import class  Foundation.URLSession
 import class  Foundation.HTTPURLResponse
 import class  Foundation.NSError
 
-public protocol Resource {
-  associatedtype Decoded
-  var request: URLRequest { get }
-  func decoding(_ data: Data) throws -> Decoded
-}
-
-public struct AnyResource<Decoded>: Resource {
+public struct Resource<Decoded> {
   public let request: URLRequest
   fileprivate let decode: (Data) throws -> Decoded
   
@@ -29,16 +23,7 @@ public struct AnyResource<Decoded>: Resource {
   }
 }
 
-public extension AnyResource {
-  
-  init<R>(_ resource: R) where R: Resource, R.Decoded == Decoded {
-    request = resource.request
-    decode = resource.decoding
-  }
-  
-}
-
-public extension AnyResource where Decoded: Decodable {
+public extension Resource where Decoded: Decodable {
   
   init(request: URLRequest) {
     self.init(request: request) { try JSONDecoder().decode(Decoded.self, from: $0) }
@@ -60,8 +45,8 @@ public extension Resource {
 
 public extension Resource { // Functor
   
-  func map<Mapped>(_ transform: @escaping (Decoded) throws -> Mapped) -> AnyResource<Mapped> {
-    return AnyResource<Mapped>(request: request, decode: decoding >>> transform)
+  func map<Mapped>(_ transform: @escaping (Decoded) throws -> Mapped) -> Resource<Mapped> {
+    return Resource<Mapped>(request: request, decode: decoding >>> transform)
   }
   
 }
@@ -69,7 +54,7 @@ public extension Resource { // Functor
 public extension Resource where Decoded: Decodable {
 
   func decoding(_ data: Data) throws -> Decoded {
-    return try AnyResource<Decoded>(request: request).decoding(data)
+    return try Resource<Decoded>(request: request).decoding(data)
   }
   
 }
