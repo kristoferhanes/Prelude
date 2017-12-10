@@ -30,8 +30,6 @@
 		5EB471981FC7A22000FD6107 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB471971FC7A22000FD6107 /* Atom.swift */; };
 		5EB5F6701FA51A7100A31B8F /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5F66F1FA51A7100A31B8F /* Writer.swift */; };
 		5ECEE2EC1EF573AA00F7EB30 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEE2EB1EF573AA00F7EB30 /* Category.swift */; };
-		5EE0C9261FCE55CD00DABFC9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE0C9251FCE55CD00DABFC9 /* Transaction.swift */; };
-		5EE0C9271FCE55D200DABFC9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE0C9251FCE55CD00DABFC9 /* Transaction.swift */; };
 		5EE4E80C1EEA3060003CB964 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE4E8021EEA305F003CB964 /* Prelude.framework */; };
 		5EE4E8111EEA3060003CB964 /* PreludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8101EEA3060003CB964 /* PreludeTests.swift */; };
 		5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81C1EEA307A003CB964 /* Status.swift */; };
@@ -60,7 +58,6 @@
 		5EB471971FC7A22000FD6107 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		5EB5F66F1FA51A7100A31B8F /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		5ECEE2EB1EF573AA00F7EB30 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		5EE0C9251FCE55CD00DABFC9 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5EE4E8021EEA305F003CB964 /* Prelude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Prelude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE4E8061EEA305F003CB964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE4E80B1EEA3060003CB964 /* PreludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +122,6 @@
 				5E7932131FC2556A00DBCF0C /* Resource.swift */,
 				5EB471971FC7A22000FD6107 /* Atom.swift */,
 				5E3B38541FCBD0D600F44519 /* BusinessModel.swift */,
-				5EE0C9251FCE55CD00DABFC9 /* Transaction.swift */,
 			);
 			path = Prelude;
 			sourceTree = "<group>";
@@ -262,7 +258,6 @@
 				5E1DB5DE1EF213C90047BE2F /* Reader.swift in Sources */,
 				5E0E9AF91FCF904A00531A7B /* Store.swift in Sources */,
 				5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */,
-				5EE0C9261FCE55CD00DABFC9 /* Transaction.swift in Sources */,
 				5ECEE2EC1EF573AA00F7EB30 /* Category.swift in Sources */,
 				5EB357461EF9FE73000644C7 /* Monoid.swift in Sources */,
 				5E3B38551FCBD0D600F44519 /* BusinessModel.swift in Sources */,
@@ -274,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EB3A8D51FC9088F00EAC2AB /* Resource.swift in Sources */,
-				5EE0C9271FCE55D200DABFC9 /* Transaction.swift in Sources */,
 				5EB3A8CE1FC9087000EAC2AB /* Reader.swift in Sources */,
 				5EB3A8D61FC9088F00EAC2AB /* Atom.swift in Sources */,
 				5EB3A8CF1FC9088F00EAC2AB /* Applicative.swift in Sources */,
