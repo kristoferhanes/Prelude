@@ -10,6 +10,6 @@ public protocol BusinessModel {
   associatedtype Event
   associatedtype Command
   init()
-  func event(for command: Command) -> Event
+  func events(for command: Command) -> [Event]
   mutating func update(with event: Event)
 }
