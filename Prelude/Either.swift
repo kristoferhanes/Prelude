@@ -11,6 +11,19 @@ enum Either<Left, Right> {
   case right(Right)
 }
 
+extension Either {
+  
+  var flipped: Either<Right, Left> {
+    switch self {
+    case let .left(left):
+      return .right(left)
+    case let .right(right):
+      return .left(right)
+    }
+  }
+  
+}
+
 extension Either { // Functor
   
   func map<Mapped>(_ transform: (Right) throws -> Mapped) rethrows -> Either<Left, Mapped> {
