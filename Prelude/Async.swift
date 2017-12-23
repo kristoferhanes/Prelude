@@ -126,12 +126,16 @@ public extension Async { // Applicative
       var fn: Status<((Wrapped) -> Mapped)>!
       var x: Status<Wrapped>!
       
-      DispatchQueue.global().async(group: group) {
-        transform.run { fn = $0 }
+      group.enter()
+      transform.run { status in
+        fn = status
+        group.leave()
       }
       
-      DispatchQueue.global().async(group: group) {
-        async.run { x = $0 }
+      group.enter()
+      async.run { status in
+        x = status
+        group.leave()
       }
       
       group.notify(queue: DispatchQueue.global()) {
