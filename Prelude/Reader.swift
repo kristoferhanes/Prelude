@@ -70,12 +70,15 @@ public extension Reader { // Category
 }
 
 public extension Reader { // Contravariant
+  
   func contramap<Mapped>(_ transform: @escaping (Mapped) throws -> Source) -> Reader<Mapped, Read> {
     return Reader<Mapped, Read> { source in try self.reading(from: transform(source)) }
   }
+  
 }
 
 public extension Reader where Read: Monoid { // Monoid
+  
   static var identity: Reader {
     return Reader { _ in Read.identity }
   }
@@ -85,4 +88,5 @@ public extension Reader where Read: Monoid { // Monoid
       return try Read.combine(lhs.reading(from: source), rhs.reading(from: source))
     }
   }
+  
 }
