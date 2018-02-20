@@ -15,6 +15,7 @@
 		5E7932141FC2556A00DBCF0C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7932131FC2556A00DBCF0C /* Resource.swift */; };
 		5E7F1B881FCF7B390051D711 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F1B871FCF7B390051D711 /* Either.swift */; };
 		5E7F1B891FCF7B390051D711 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F1B871FCF7B390051D711 /* Either.swift */; };
+		5E952C532013AAC000D69677 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E952C522013AAC000D69677 /* Weak.swift */; };
 		5EB357461EF9FE73000644C7 /* Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB357451EF9FE73000644C7 /* Monoid.swift */; };
 		5EB3A8CE1FC9087000EAC2AB /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB5DD1EF213C90047BE2F /* Reader.swift */; };
 		5EB3A8CF1FC9088F00EAC2AB /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81E1EEA31A0003CB964 /* Applicative.swift */; };
@@ -28,6 +29,21 @@
 		5EB471981FC7A22000FD6107 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB471971FC7A22000FD6107 /* Atom.swift */; };
 		5EB5F6701FA51A7100A31B8F /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5F66F1FA51A7100A31B8F /* Writer.swift */; };
 		5ECEE2EC1EF573AA00F7EB30 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEE2EB1EF573AA00F7EB30 /* Category.swift */; };
+		5EE1C5432033E62E00C2B621 /* PreludeOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EE1C5422033E62E00C2B621 /* PreludeOSX.h */; };
+		5EE1C5452033E62E00C2B621 /* PreludeOSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE1C5442033E62E00C2B621 /* PreludeOSX.m */; };
+		5EE1C5492033E63C00C2B621 /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81E1EEA31A0003CB964 /* Applicative.swift */; };
+		5EE1C54A2033E63C00C2B621 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEE2EB1EF573AA00F7EB30 /* Category.swift */; };
+		5EE1C54B2033E63C00C2B621 /* Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB357451EF9FE73000644C7 /* Monoid.swift */; };
+		5EE1C54C2033E63C00C2B621 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F1B871FCF7B390051D711 /* Either.swift */; };
+		5EE1C54D2033E63C00C2B621 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81C1EEA307A003CB964 /* Status.swift */; };
+		5EE1C54E2033E63C00C2B621 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8201EEA343E003CB964 /* Async.swift */; };
+		5EE1C54F2033E63C00C2B621 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB5DD1EF213C90047BE2F /* Reader.swift */; };
+		5EE1C5502033E63C00C2B621 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5F66F1FA51A7100A31B8F /* Writer.swift */; };
+		5EE1C5512033E63C00C2B621 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0E9AF81FCF904A00531A7B /* Store.swift */; };
+		5EE1C5522033E63C00C2B621 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0E9AFC1FCF934C00531A7B /* State.swift */; };
+		5EE1C5532033E63C00C2B621 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7932131FC2556A00DBCF0C /* Resource.swift */; };
+		5EE1C5542033E63C00C2B621 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E952C522013AAC000D69677 /* Weak.swift */; };
+		5EE1C5562033E63C00C2B621 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB471971FC7A22000FD6107 /* Atom.swift */; };
 		5EE4E80C1EEA3060003CB964 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE4E8021EEA305F003CB964 /* Prelude.framework */; };
 		5EE4E8111EEA3060003CB964 /* PreludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E8101EEA3060003CB964 /* PreludeTests.swift */; };
 		5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4E81C1EEA307A003CB964 /* Status.swift */; };
@@ -51,10 +67,14 @@
 		5E1DB5DD1EF213C90047BE2F /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		5E7932131FC2556A00DBCF0C /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5E7F1B871FCF7B390051D711 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		5E952C522013AAC000D69677 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		5EB357451EF9FE73000644C7 /* Monoid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monoid.swift; sourceTree = "<group>"; };
 		5EB471971FC7A22000FD6107 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		5EB5F66F1FA51A7100A31B8F /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		5ECEE2EB1EF573AA00F7EB30 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5EE1C5402033E62E00C2B621 /* libPreludeOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPreludeOSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EE1C5422033E62E00C2B621 /* PreludeOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreludeOSX.h; sourceTree = "<group>"; };
+		5EE1C5442033E62E00C2B621 /* PreludeOSX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreludeOSX.m; sourceTree = "<group>"; };
 		5EE4E8021EEA305F003CB964 /* Prelude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Prelude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE4E8061EEA305F003CB964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE4E80B1EEA3060003CB964 /* PreludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5EE1C53D2033E62E00C2B621 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE4E7FE1EEA305F003CB964 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,11 +111,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EE1C5412033E62E00C2B621 /* PreludeOSX */ = {
+			isa = PBXGroup;
+			children = (
+				5EE1C5422033E62E00C2B621 /* PreludeOSX.h */,
+				5EE1C5442033E62E00C2B621 /* PreludeOSX.m */,
+			);
+			path = PreludeOSX;
+			sourceTree = "<group>";
+		};
 		5EE4E7F81EEA305F003CB964 = {
 			isa = PBXGroup;
 			children = (
 				5EE4E8041EEA305F003CB964 /* Prelude */,
 				5EE4E80F1EEA3060003CB964 /* PreludeTests */,
+				5EE1C5412033E62E00C2B621 /* PreludeOSX */,
 				5EE4E8031EEA305F003CB964 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +135,7 @@
 			children = (
 				5EE4E8021EEA305F003CB964 /* Prelude.framework */,
 				5EE4E80B1EEA3060003CB964 /* PreludeTests.xctest */,
+				5EE1C5402033E62E00C2B621 /* libPreludeOSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +155,7 @@
 				5E0E9AF81FCF904A00531A7B /* Store.swift */,
 				5E0E9AFC1FCF934C00531A7B /* State.swift */,
 				5E7932131FC2556A00DBCF0C /* Resource.swift */,
+				5E952C522013AAC000D69677 /* Weak.swift */,
 				5EB471971FC7A22000FD6107 /* Atom.swift */,
 			);
 			path = Prelude;
@@ -134,6 +173,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5EE1C53E2033E62E00C2B621 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EE1C5432033E62E00C2B621 /* PreludeOSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE4E7FF1EEA305F003CB964 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +191,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5EE1C53F2033E62E00C2B621 /* PreludeOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EE1C5462033E62E00C2B621 /* Build configuration list for PBXNativeTarget "PreludeOSX" */;
+			buildPhases = (
+				5EE1C53C2033E62E00C2B621 /* Sources */,
+				5EE1C53D2033E62E00C2B621 /* Frameworks */,
+				5EE1C53E2033E62E00C2B621 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PreludeOSX;
+			productName = PreludeOSX;
+			productReference = 5EE1C5402033E62E00C2B621 /* libPreludeOSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		5EE4E8011EEA305F003CB964 /* Prelude */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EE4E8161EEA3060003CB964 /* Build configuration list for PBXNativeTarget "Prelude" */;
@@ -190,6 +254,11 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Kristofer Hanes";
 				TargetAttributes = {
+					5EE1C53F2033E62E00C2B621 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = S45PT92T2Q;
+						ProvisioningStyle = Automatic;
+					};
 					5EE4E8011EEA305F003CB964 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S45PT92T2Q;
@@ -218,6 +287,7 @@
 			targets = (
 				5EE4E8011EEA305F003CB964 /* Prelude */,
 				5EE4E80A1EEA3060003CB964 /* PreludeTests */,
+				5EE1C53F2033E62E00C2B621 /* PreludeOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +310,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5EE1C53C2033E62E00C2B621 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EE1C5492033E63C00C2B621 /* Applicative.swift in Sources */,
+				5EE1C54B2033E63C00C2B621 /* Monoid.swift in Sources */,
+				5EE1C54F2033E63C00C2B621 /* Reader.swift in Sources */,
+				5EE1C5542033E63C00C2B621 /* Weak.swift in Sources */,
+				5EE1C5522033E63C00C2B621 /* State.swift in Sources */,
+				5EE1C5502033E63C00C2B621 /* Writer.swift in Sources */,
+				5EE1C5562033E63C00C2B621 /* Atom.swift in Sources */,
+				5EE1C5452033E62E00C2B621 /* PreludeOSX.m in Sources */,
+				5EE1C5512033E63C00C2B621 /* Store.swift in Sources */,
+				5EE1C54E2033E63C00C2B621 /* Async.swift in Sources */,
+				5EE1C54A2033E63C00C2B621 /* Category.swift in Sources */,
+				5EE1C5532033E63C00C2B621 /* Resource.swift in Sources */,
+				5EE1C54C2033E63C00C2B621 /* Either.swift in Sources */,
+				5EE1C54D2033E63C00C2B621 /* Status.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EE4E7FD1EEA305F003CB964 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +347,7 @@
 				5EE4E81D1EEA307A003CB964 /* Status.swift in Sources */,
 				5ECEE2EC1EF573AA00F7EB30 /* Category.swift in Sources */,
 				5EB357461EF9FE73000644C7 /* Monoid.swift in Sources */,
+				5E952C532013AAC000D69677 /* Weak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +382,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5EE1C5472033E62E00C2B621 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S45PT92T2Q;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5EE1C5482033E62E00C2B621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S45PT92T2Q;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		5EE4E8141EEA3060003CB964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,6 +603,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5EE1C5462033E62E00C2B621 /* Build configuration list for PBXNativeTarget "PreludeOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EE1C5472033E62E00C2B621 /* Debug */,
+				5EE1C5482033E62E00C2B621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5EE4E7FC1EEA305F003CB964 /* Build configuration list for PBXProject "Prelude" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
